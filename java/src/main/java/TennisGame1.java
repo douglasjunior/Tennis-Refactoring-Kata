@@ -10,7 +10,7 @@ public class TennisGame1 implements TennisGame {
     }
 
     public void wonPoint(String playerName) {
-        if (playerName.equals("player1")) {
+        if (p1.getName().equals(playerName)) {
             p1.score();
         } else {
             p2.score();
@@ -28,13 +28,13 @@ public class TennisGame1 implements TennisGame {
         } else if (p1.getPoint() >= 4 || p2.getPoint() >= 4) {
             int minusResult = p1.getPoint() - p2.getPoint();
             if (minusResult == 1) {
-                score = "Advantage player1";
+                score = "Advantage " + p1.getName();
             } else if (minusResult == -1) {
-                score = "Advantage player2";
+                score = "Advantage " + p2.getName();
             } else if (minusResult >= 2) {
-                score = "Win for player1";
+                score = "Win for " + p1.getName();
             } else {
-                score = "Win for player2";
+                score = "Win for " + p2.getName();
             }
         } else {
             score = getRes(p1).getDescription() + "-" + getRes(p2).getDescription();

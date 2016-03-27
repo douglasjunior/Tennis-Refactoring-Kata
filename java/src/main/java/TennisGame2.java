@@ -17,22 +17,22 @@ public class TennisGame2 implements TennisGame {
             return "Deuce";
         }
         if (p1.getPoint() >= 4 && p2.getPoint() >= 0 && (p1.getPoint() - p2.getPoint()) >= 2) {
-            return "Win for player1";
+            return "Win for " + p1.getName();
         }
         if (p2.getPoint() >= 4 && p1.getPoint() >= 0 && (p2.getPoint() - p1.getPoint()) >= 2) {
-            return "Win for player2";
+            return "Win for " + p2.getName();
         }
         if (p1.getPoint() > p2.getPoint() && p2.getPoint() >= 3) {
-            return "Advantage player1";
+            return "Advantage " + p1.getName();
         }
         if (p2.getPoint() > p1.getPoint() && p1.getPoint() >= 3) {
-            return "Advantage player2";
+            return "Advantage " + p2.getName();
         }
         return getRes(p1).getDescription() + "-" + getRes(p2).getDescription();
     }
 
     public void wonPoint(String player) {
-        if (player.equals("player1")) {
+        if (p1.getName().equals(player)) {
             p1.score();
         } else {
             p2.score();
